@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Author;
+use App\Entity\Links;
 use App\Form\PostcardSend;
 use App\Form\PostcardSendType;
 use App\Repository\PostcardRepository;
@@ -117,9 +118,11 @@ class PostcardController extends AbstractController
     /**
      * @Route("/links", name="links")
      */
-    public function links()
+    public function links(EntityManagerInterface $em)
     {
-        return $this->render('ref.html.twig');
+        return $this->render('ref.html.twig', [
+            'links' => $em->getRepository(Links::class)->findAll()
+        ]);
     }
 
     /**
