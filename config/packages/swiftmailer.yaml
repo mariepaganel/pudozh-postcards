@@ -1,0 +1,17 @@
+swiftmailer:
+    url: '%env(MAILER_URL)%'
+    spool:
+        type: 'memory'
+
+# Попытка отправлять с разных email. Пока законсервировано
+#swiftmailer:
+#    default_mailer: mailru
+#    mailers:
+#        airmail:
+#            url: '%env(MAILER_URL)%'
+#            spool:
+#                type: 'memory'
+#        mailru:
+#            url: '%env(MAILER_URL_MAILRU)%'
+#            spool:
+#                type: 'memory'

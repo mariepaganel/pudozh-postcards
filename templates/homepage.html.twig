@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+
+            {% include '_album.html.twig' %}
+
+                {% if images.haveToPaginate %}
+                    <div class="navigation mx-auto text-center">
+                        {{ pagerfanta(images, 'twitter_bootstrap4_translated', {routeName: 'main_paginated'}) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

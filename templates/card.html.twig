@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron mt-4 mb-4 box-shadow">
+                        {% if card.title %}<h2>{{ card.title }}</h2>{% endif %}
+                        <p>Автор: <a href="{{ path('author_by_id', {'author': card.author.id }) }}"> {{ card.author.name }}</a></p>
+                        <img src="/images/{{ card.author.id }}/{{ card.filename }}" class="img-fluid mx-auto">
+                        <div class="form mt-5">
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <title>Открытка из Пудожского района</title>
+    <style type="text/css">
+        #main { border: 1px solid darkgray; border-radius: 4px }
+        img {display: block; border-radius: 4px}
+    </style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="5" bgcolor="e4e4e4"><tr><td>
+
+    <table id="main" cellpadding="0" cellspacing="5" bgcolor="ffffff" width="600" align="center">
+        <tr>
+            <td align="center">
+                <img src="{{ image_src }}" width="590px" style="margin-bottom: 0">
+                <p style="font-size: xx-small; margin-top: 0; text-align: right; color: #565656">{%  if title %}"{{ title }}".{% endif %}Фотограф: {{ author }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="content-2" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td width="570" align="right">
+                            <p>Кому: {{ to_name }}<br>
+                            От кого: {{ from_name }}<br>
+                            Обратный адрес: {{ from_email }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td width="570">
+                            {{ text|nl2br }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="570" align="right">
+                            <p style="font-size: xx-small">Эту открытку {{ from_name }} отправил(а) вам с сайта <a href="http://pudozh.kersonova.ru">Открытки из Пудожа</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+    </table><!-- main -->
+
+     <table id="bottom-message" cellpadding="10" cellspacing="0" width="600" align="center">
+         <tr>
+             <td align="center" style="font-size: xx-small">
+                 <p>Проблемы с отображением письма? C нашего адреса приходит спам?</p><p><a href="mailto:pudozh_postcards@mail.ru">Сообщите нам о проблеме</a></p>
+             </td>
+         </tr>
+     </table><!-- bottom message -->
+
+    </tr></table><!-- wrapper -->
+
+</body>
+</html>
+{# Как указывать изображение #}
+{#<img src="{{ image_src }}" width="450px">#}

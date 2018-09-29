@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <h1 class="text-center">Наши авторы</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="https://pp.userapi.com/c850424/v850424426/123e0/pxHBgA9q0Ww.jpg" class="img-fluid rounded">
+                </div>
+                <div class="col-md-9">
+                    <h2>Мария «MariePaganel» Керсонова</h2>
+                    <h6>создательница сайта</h6>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <p>«Пудожане! Учреждения культуры, туризма и образования!</p>
+                    <p>У меня есть небольшой учебный проект: я делаю сайт, с которого можно было бы отправить другу или кому угодно e-mail с картинкой из каталога. Электронную открытку.</p>
+                    <p>Я бы хотела, чтобы открытками на этом сайте были фотографии или рисунки из нашего Пудожского района.</p>
+                    <p>Но мне нужны собственно сами картинки! Если вы фотографируете или рисуете и хотите помочь мне немного прославить наш край, то поделитесь со мной одним-двумя фото или рисунками!» </p>
+                    <p class="small text-right">2 мая 2018 г.</p>
+                </div>
+            </div>
+
+
+                {% for author in authors %}
+                    <div class="row">
+                        <div class="col-md-2">
+                            {% if author.photo %}
+                                <img src="{{ author.photo }}" class="img-fluid rounded">
+                            {% else %}
+                                <img src="https://s3.amazonaws.com/media.reading.am/users/avatars/default/original.png" class="img-fluid rounded">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-9">
+                            <h2>{{ author.name }}</h2>
+                            <h6>автор открыток</h6>
+                            <a href="{{ path('author_by_id', {'author': author.id}) }}">Все открытки автора</a>
+                            {% if author.email %}
+                            <p><a href="mailto:{{ author.email }}">Связаться с автором</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+            <div class="row">
+                    <div class="col-md-12 my-3">
+                        <p>{{ author.description|raw }}</p>
+                    </div>
+            </div>
+                {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

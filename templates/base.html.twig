@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Pudozh Postcards{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            {% block header %}
+                <header>
+                    <div class="collapse bg-success" id="navbarHeader">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 py-4">
+                                    <h4 class="text-white">О проекте</h4>
+                                    <p class="text-light">Фотографы{# и художники#} из Пудожского района предлагают вам отправить друзьям Email-открытки с видами и эпизодами из жизни нашего прекрасного края. Выберите открытку!</p>
+                                </div>
+                                <div class="col-sm-3 col-md-6 py-4">
+                                    <div class="row">
+                                        <div class="col-md-6 text-center">
+                                            <h4 class="text-white">Меню</h4>
+                                            <ul class="list-unstyled">
+                                                <li><a href="{{ path('faq') }}" class="text-white">Информация</a></li>
+                                                <li><a href="{{ path('authors') }}" class="text-white">Наши авторы</a></li>
+                                                <li><a href="{{ path('links') }}" class="text-white">Ссылки</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                            <h4 class="text-white">Контакты</h4>
+                                            <ul class="list-unstyled">
+                                                <li><a href="https://github.com/mariepaganel" class="text-white">GitHub</a></li>
+                                                <li><a href="https://vk.com/kersonova" class="text-white">ВКонтакте</a></li>
+                                                <li><a href="mailto:kersonova@yandex.ru" class="text-white">Email me</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar navbar-dark bg-success box-shadow">
+                        <div class="container d-flex justify-content-between">
+                            <a href="{{ path('main') }}" class="navbar-brand d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" class="mr-2"><path d="M30,7.1c0-0.1,0-0.3-0.1-0.4c-0.2-1-1.1-1.7-2.1-1.7H4.2C3,5,2,6,2,7.2v18.6C2,27,3,28,4.2,28h23.6c1.2,0,2.2-1,2.2-2.2
+	L30,7.1C30,7.2,30,7.1,30,7.1z M27.4,7L16,16.2L4.5,7H27.4z M27.8,26H4.2C4.1,26,4,25.9,4,25.8V9.2l12,9.6l12-9.7v16.7
+	C28,25.9,27.9,26,27.8,26z"/></svg>
+                                <strong>Открытки из Пудожа</strong>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+            {% endblock %}
+
+            <main>
+                {% block main %}
+                <div class="album py-5 bg-light">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        <p class="alert alert-success">{{ msg }}</p>
+                    {% endfor %}
+                    {% for msg in app.session.flashBag.get('error') %}
+                        <p class="alert alert-danger">{{ msg }}</p>
+                    {% endfor %}
+                    <a href="{{ path('main') }}" class="my-3 py-3 btn btn-success btn-block">Вернуться на главную</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            </main>
+
+            <footer class="text-muted">
+                {% block footer %}
+                        <div class="container">
+                            <p class="float-right">
+                                <a href="#">Back to top</a>
+                            </p>
+                            <p>from Pudozh with love</p>
+                            <p class="small">Исходный код сайта распространяется под лицензией MIT © 2018 Мария Керсонова.<br>
+                                Права на изображения защищены и принадлежат авторам изображений.</p>
+                        </div>
+                {% endblock %}
+            </footer>
+        {% endblock %}
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        {% endblock %}
+    </body>
+</html>
