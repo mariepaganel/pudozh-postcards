@@ -1,9 +1,15 @@
 {# альбом - для домашней страницы и страницы каждого автора #}
+<div class="row">
 {% for image in images %}
     <div class="col-md-4">
 
         <a style="text-decoration: none" class="card mb-4 box-shadow" href="{{ path('one_postcard', {'id': image.id}) }}">
-            <img class="card-img-top" src="/images/{{ image.author.id }}/{{ image.filename }}" alt="Card image cap">
+            <div class="card-img-top"
+                 style="
+                         background-image: url('/images/{{ image.author.id }}/{{ image.filename }}');
+                         background-size: cover;
+                         background-position: center; min-height: 350px;
+                     "></div>
             <div class="card-body text-dark">
                 <p class="card-title">{{ image.title }}</p>
                 <p class="card-text">Автор: {{ image.author.name }}</p>
@@ -12,3 +18,4 @@
 
     </div>
 {% endfor %}
+</div>
