@@ -35,9 +35,9 @@ class PostcardController extends AbstractController
      *
      * Страница одной открытки и форма отправки
      */
-    public function card($id, \Swift_Mailer $mailer, Request $request)
+    public function card($id, \Swift_Mailer $mailer, Request $request, EntityManagerInterface $em)
     {
-        $postcard = $this->getDoctrine()
+        $postcard = $em
             ->getRepository(Postcard::class)
             ->find($id);
 
@@ -88,6 +88,10 @@ class PostcardController extends AbstractController
                 $this->addFlash('success', "Открытка успешно отправлена!");
             else
                 $this->addFlash('error', 'Что-то пошло не так: открытка не отправлена. Сообщите нам об ошибке.');
+
+            // +1 к отправлениям открытки
+            $postcard->setSends($postcard->getSends()+1);
+            $em->flush();
 
             return $this->redirectToRoute('success');
         }

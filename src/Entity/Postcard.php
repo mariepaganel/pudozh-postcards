@@ -33,6 +33,11 @@ class Postcard
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $sends = 0;
+
     public function getId()
     {
         return $this->id;
@@ -70,6 +75,18 @@ class Postcard
     public function setAuthor(?Author $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getSends(): ?int
+    {
+        return $this->sends;
+    }
+
+    public function setSends(int $sends): self
+    {
+        $this->sends = $sends;
 
         return $this;
     }

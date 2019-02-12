@@ -43,12 +43,16 @@
                         </div>
                     </div>
                     <div class="navbar navbar-dark bg-success box-shadow">
-                        <div class="container d-flex justify-content-between">
+                        <div class="container-fluid d-flex justify-content-between">
                             <a href="{{ path('main') }}" class="navbar-brand d-flex align-items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" class="mr-2"><path d="M30,7.1c0-0.1,0-0.3-0.1-0.4c-0.2-1-1.1-1.7-2.1-1.7H4.2C3,5,2,6,2,7.2v18.6C2,27,3,28,4.2,28h23.6c1.2,0,2.2-1,2.2-2.2
-	L30,7.1C30,7.2,30,7.1,30,7.1z M27.4,7L16,16.2L4.5,7H27.4z M27.8,26H4.2C4.1,26,4,25.9,4,25.8V9.2l12,9.6l12-9.7v16.7
-	C28,25.9,27.9,26,27.8,26z"/></svg>
-                                <strong>Открытки из Пудожа</strong>
+                                {#<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" class="mr-2"><path d="M30,7.1c0-0.1,0-0.3-0.1-0.4c-0.2-1-1.1-1.7-2.1-1.7H4.2C3,5,2,6,2,7.2v18.6C2,27,3,28,4.2,28h23.6c1.2,0,2.2-1,2.2-2.2#}
+	{#L30,7.1C30,7.2,30,7.1,30,7.1z M27.4,7L16,16.2L4.5,7H27.4z M27.8,26H4.2C4.1,26,4,25.9,4,25.8V9.2l12,9.6l12-9.7v16.7#}
+	{#C28,25.9,27.9,26,27.8,26z"/></svg>#}
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" width="25px" height="25px">
+<g>
+    <path id="mail" d="M28,5.5H4c-2.209,0-4,1.792-4,4v13c0,2.209,1.791,4,4,4h24c2.209,0,4-1.791,4-4v-13   C32,7.292,30.209,5.5,28,5.5z M2,10.75L8.999,16L2,21.25V10.75z M30,22.5c0,1.104-0.898,2-2,2H4c-1.103,0-2-0.896-2-2l7.832-5.875   l4.368,3.277c0.533,0.398,1.166,0.6,1.8,0.6c0.633,0,1.266-0.201,1.799-0.6l4.369-3.277L30,22.5L30,22.5z M30,21.25L23,16l7-5.25   V21.25z M17.199,19.102c-0.349,0.262-0.763,0.4-1.199,0.4s-0.851-0.139-1.2-0.4L10.665,16l-0.833-0.625L2,9.501V9.5   c0-1.103,0.897-2,2-2h24c1.102,0,2,0.897,2,2L17.199,19.102z" fill="#FFFFFF"/>
+</g></svg>
+                                <strong class="mx-2">Открытки из Пудожа</strong>
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -80,7 +84,7 @@
 
             <footer class="text-muted">
                 {% block footer %}
-                        <div class="container">
+                        <div class="container-fluid">
                             <p class="float-right">
                                 <a href="#">Back to top</a>
                             </p>
